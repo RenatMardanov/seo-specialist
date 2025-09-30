@@ -1,0 +1,10 @@
+{
+  "name": "@seo-specialist/web-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@seo-specialist/web"
+    ]
+  }
+}
