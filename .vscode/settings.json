@@ -1,3 +1,9 @@
 {
-  "cSpell.words": ["payloadcms"]
+  "cSpell.words": [
+    "createbucket",
+    "healthcheck",
+    "INITDB",
+    "isready",
+    "payloadcms"
+  ]
 }
