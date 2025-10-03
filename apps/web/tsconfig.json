@@ -3,6 +3,7 @@
   "compilerOptions": {
     "jsx": "preserve",
     "noEmit": true,
+
     "emitDeclarationOnly": false,
     "esModuleInterop": true,
     "module": "esnext",
@@ -20,8 +21,9 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@seo-specialist/ui": ["../../packages/web/ui"],
-      "@seo-specialist/utils": ["../../packages/shared/utils"]
+      "@seo-specialist/ui": ["packages/web/ui/src/index.ts"],
+      "@seo-specialist/utils": ["packages/shared/utils/src/index.ts"],
+      "@payload-config": ["apps/web/src/payload.config.ts"]
     },
     "outDir": "dist",
 
