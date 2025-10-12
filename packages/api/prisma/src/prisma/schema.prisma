@@ -1,8 +1,7 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/client"
-  // По умолчанию генерит в node_modules/@prisma/client у потребителя
-  // output можно менять, но чаще оставляют дефолт.
+  // Используем стандартный output для монорепозитория
+  // Prisma сгенерирует клиент в node_modules/@prisma/client
 }
 
 datasource db {

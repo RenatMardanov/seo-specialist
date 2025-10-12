@@ -8,7 +8,7 @@
       "options": {
         "command": "prisma generate --schema=packages/api/prisma/src/prisma/schema.prisma"
       },
-      "outputs": ["{projectRoot}/src/generated"],
+      "outputs": ["{workspaceRoot}/node_modules/@prisma/client"],
       "cache": true
     },
     "migrate-dev": {

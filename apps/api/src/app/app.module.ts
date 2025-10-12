@@ -1,5 +1,6 @@
-import { ConfigModules } from '@api/modules/config/config.module';
-import { KeycloakConfigService } from '@api/modules/config/keycloak/keycloak-config.service';
+import { ConfigModules } from '@api/core/config/config.module';
+import { KeycloakConfigService } from '@api/core/config/keycloak/keycloak-config.service';
+import { PrismaModule } from '@api/core/database/prisma.module';
 import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
 import {
@@ -10,7 +11,6 @@ import {
 } from 'nest-keycloak-connect';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { PrismaModule } from '@api/core/database/prisma.module';
 
 @Module({
   imports: [

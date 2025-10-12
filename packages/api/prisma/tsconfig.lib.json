@@ -11,6 +11,9 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["node"]
   },
+  "paths": {
+    "@seo-specialist/prisma": ["src/index.ts"]
+  },
   "include": ["src/**/*.ts"],
   "references": [],
   "exclude": [
