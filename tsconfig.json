@@ -20,6 +20,9 @@
     },
     {
       "path": "./apps/api"
+    },
+    {
+      "path": "./packages/api/prisma"
     }
   ],
   "compilerOptions": {

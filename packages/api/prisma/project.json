@@ -1,0 +1,131 @@
+{
+  "name": "prisma",
+  "sourceRoot": "packages/api/prisma/src",
+  "projectType": "library",
+  "targets": {
+    "generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma generate --schema=packages/api/prisma/src/prisma/schema.prisma"
+      },
+      "outputs": ["{projectRoot}/src/generated"],
+      "cache": true
+    },
+    "migrate-dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma migrate dev --schema=packages/api/prisma/src/prisma/schema.prisma"
+      },
+      "description": "Create and apply migrations (auto-generates client)"
+    },
+    "migrate-create": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma migrate dev --create-only --schema=packages/api/prisma/src/prisma/schema.prisma"
+      },
+      "description": "Create migration file without applying"
+    },
+    "migrate-deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "prisma migrate deploy --schema=packages/api/prisma/src/prisma/schema.prisma",
+          "prisma generate --schema=packages/api/prisma/src/prisma/schema.prisma"
+        ],
+        "parallel": false
+      },
+      "description": "Apply pending migrations + generate (for production)"
+    },
+    "migrate-reset-force": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma migrate reset --schema=packages/api/prisma/src/prisma/schema.prisma --force"
+      },
+      "description": "Reset DB and apply migrations (auto-generates client)"
+    },
+    "migrate-reset": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma migrate reset --schema=packages/api/prisma/src/prisma/schema.prisma"
+      },
+      "description": "Reset DB and apply migrations (auto-generates client)"
+    },
+    "migrate-reset-skip-gen": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma migrate reset --schema=packages/api/prisma/src/prisma/schema.prisma --force --skip-generate"
+      },
+      "description": "Reset DB without generating (faster for multiple resets)"
+    },
+    "migrate-status": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma migrate status --schema=packages/api/prisma/src/prisma/schema.prisma"
+      },
+      "description": "Check migration status"
+    },
+    "studio": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma studio --schema=packages/api/prisma/src/prisma/schema.prisma"
+      },
+      "description": "Open Prisma Studio GUI"
+    },
+    "db-push": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma db push --schema=packages/api/prisma/src/prisma/schema.prisma"
+      },
+      "description": "Push schema to DB without migrations (auto-generates client)"
+    },
+    "db-push-force-reset": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma db push --schema=packages/api/prisma/src/prisma/schema.prisma --force-reset"
+      },
+      "description": "Push schema to DB with force reset (auto-generates client)"
+    },
+    "db-push-skip-gen": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma db push --schema=packages/api/prisma/src/prisma/schema.prisma --skip-generate"
+      },
+      "description": "Push schema without generating (faster)"
+    },
+    "db-pull": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "prisma db pull --schema=packages/api/prisma/src/prisma/schema.prisma",
+          "prisma generate --schema=packages/api/prisma/src/prisma/schema.prisma"
+        ],
+        "parallel": false
+      },
+      "description": "Pull schema from DB + generate client"
+    },
+    "db-seed": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma db seed",
+        "cwd": "packages/api/prisma"
+      },
+      "description": "Seed database with test data"
+    },
+    "validate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma validate --schema=packages/api/prisma/src/prisma/schema.prisma"
+      },
+      "description": "Validate Prisma schema",
+      "cache": true
+    },
+    "format": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma format --schema=packages/api/prisma/src/prisma/schema.prisma"
+      },
+      "description": "Format Prisma schema file"
+    }
+  },
+  "tags": ["scope:api", "type:lib"]
+}

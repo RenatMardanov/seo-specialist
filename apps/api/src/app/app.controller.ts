@@ -15,7 +15,6 @@ export class AppController {
   @Get('whoami')
   @Public()
   whoami(req: Request) {
-    // req.user -> расшифрованный JWT; достанем клейм plan
     console.log(req);
 
     return { ok: true };
