@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {},
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "../../packages/api/prisma"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ]
+}

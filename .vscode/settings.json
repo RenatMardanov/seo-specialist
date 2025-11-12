@@ -4,6 +4,7 @@
     "healthcheck",
     "INITDB",
     "isready",
-    "payloadcms"
+    "payloadcms",
+    "seospecialist"
   ]
 }

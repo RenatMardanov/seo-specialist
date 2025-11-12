@@ -1,0 +1,76 @@
+openapi: 3.0.0
+paths:
+  /api/pro:
+    get:
+      operationId: AppController_getData
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - App
+  /api/whoami:
+    get:
+      operationId: AppController_whoami
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - App
+  /api/users:
+    get:
+      operationId: UsersController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: List of users retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UsersDTO'
+      summary: Get all users
+      tags:
+        - users
+info:
+  title: SEO Specialist API
+  description: API documentation for SEO Specialist application
+  version: 0.0.1
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    UsersDTO:
+      type: object
+      properties:
+        id:
+          type: number
+          description: User ID
+          example: 1
+        email:
+          type: string
+          description: User email
+          example: user@example.com
+        name:
+          type: string
+          nullable: true
+          description: User name
+          example: John Doe
+        createdAt:
+          format: date-time
+          type: string
+          description: Creation date
+          example: '2024-01-01T00:00:00.000Z'
+        updatedAt:
+          format: date-time
+          type: string
+          description: Last update date
+          example: '2024-01-01T00:00:00.000Z'
+      required:
+        - id
+        - email
+        - createdAt
+        - updatedAt

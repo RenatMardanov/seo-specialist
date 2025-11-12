@@ -1,7 +1,7 @@
 services:
-  postgres:
+  postgres_cms:
     image: postgres:17.6
-    container_name: payload_pg
+    container_name: payload_pg_cms
     restart: unless-stopped
     environment:
       POSTGRES_USER: payload
@@ -11,9 +11,27 @@ services:
     ports:
       - "5441:5432"
     volumes:
-      - pg_data:/var/lib/postgresql/data
+      - cms_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U payload -d payload -h 127.0.0.1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  postgres:
+    image: postgres:17.6
+    container_name: dev_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: dev_db
+      POSTGRES_PASSWORD: dev_db
+      POSTGRES_DB: dev_db
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=en_US.utf8"
+    ports:
+      - "5442:5432"
+    volumes:
+      - dev_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dev_db -d dev_db -h 127.0.0.1"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -27,8 +45,8 @@ services:
       MINIO_ROOT_USER: minio
       MINIO_ROOT_PASSWORD: minio123
     ports:
-      - "9000:9000"  # S3 API
-      - "9001:9001"  # Web Console
+      - "9000:9000" # S3 API
+      - "9001:9001" # Web Console
     volumes:
       - minio_data:/data
     healthcheck:
@@ -52,5 +70,6 @@ services:
       "
 
 volumes:
-  pg_data:
   minio_data:
+  cms_data:
+  dev_data:
