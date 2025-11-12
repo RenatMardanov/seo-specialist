@@ -29,6 +29,12 @@
     },
     {
       "path": "./packages/shared/auth-core"
+    },
+    {
+      "path": "./apps/dashboard-e2e"
+    },
+    {
+      "path": "./apps/dashboard"
     }
   ],
   "compilerOptions": {

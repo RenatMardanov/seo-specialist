@@ -96,7 +96,18 @@
     },
     "@nx/react": {
       "library": {
+        "style": "none",
+        "linter": "eslint",
         "unitTestRunner": "none"
+      },
+      "application": {
+        "babel": true,
+        "style": "none",
+        "linter": "eslint",
+        "bundler": "vite"
+      },
+      "component": {
+        "style": "none"
       }
     }
   },
