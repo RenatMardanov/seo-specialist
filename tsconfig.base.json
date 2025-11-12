@@ -18,6 +18,9 @@
     "target": "es2022",
     "customConditions": ["@seo-specialist/source"],
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@seo-specialist/ui": ["packages/web/ui/src/index.ts"],
+      "@seo-specialist/utils": ["packages/shared/utils/src/index.ts"]
+    }
   }
 }

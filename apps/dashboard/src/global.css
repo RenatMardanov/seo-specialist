@@ -1,0 +1,3 @@
+@import '../../../packages/web/ui/src/global.css';
+@source "../src/**/*.{ts,tsx,js,jsx}";
+@source "../../../packages/web/ui/src/**/*.{ts,tsx,js,jsx}";
