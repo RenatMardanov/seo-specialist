@@ -11,6 +11,7 @@ import {
 } from 'nest-keycloak-connect';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { UsersModule } from '@api/modules/users/users.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { AppService } from './app.service';
       imports: [ConfigModules],
     }),
     PrismaModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [

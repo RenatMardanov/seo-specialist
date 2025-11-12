@@ -1,0 +1,36 @@
+{
+  "name": "api-client",
+  "sourceRoot": "packages/shared/api-client/src",
+  "projectType": "library",
+  "targets": {
+    "api-download": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "curl http://localhost:3000/api/docs-yaml -o src/api/schema.yaml",
+        "cwd": "packages/shared/api-client"
+      },
+      "description": "Download OpenAPI spec from running API server"
+    },
+    "api-generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "orval --config orval.config.ts",
+        "cwd": "packages/shared/api-client"
+      },
+      "dependsOn": ["api-download"],
+      "description": "Generate TypeScript client from OpenAPI spec"
+    },
+    "generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx run api-client:api-download",
+          "nx run api-client:api-generate"
+        ],
+        "parallel": false
+      },
+      "description": "Download spec and generate client (full pipeline)"
+    }
+  },
+  "tags": ["scope:shared", "type:lib"]
+}

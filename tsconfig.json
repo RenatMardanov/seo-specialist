@@ -23,6 +23,12 @@
     },
     {
       "path": "./packages/api/prisma"
+    },
+    {
+      "path": "./packages/shared/api-client"
+    },
+    {
+      "path": "./packages/shared/auth-core"
     }
   ],
   "compilerOptions": {

@@ -1,0 +1,29 @@
+{
+  "name": "@seo-specialist/api-client",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "api:download": "wget http://localhost:3000/api/docs-yaml -O ./src/api/schema.yaml",
+    "api:generate": "orval"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@seo-specialist/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "nx": {
+    "tags": [
+      "scope:shared",
+      "type:lib"
+    ]
+  },
+  "dependencies": {}
+}
